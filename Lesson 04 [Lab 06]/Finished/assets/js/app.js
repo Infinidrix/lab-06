@@ -27,11 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // if there's an error
     TasksDB.onerror = function() {
-            console.log('There was an error');
-        }
+        console.log('There was an error');
+    }
         // if everything is fine, assign the result to the instance
     TasksDB.onsuccess = function() {
-        // console.log('Database Ready');
 
         // save the result
         DB = TasksDB.result;
