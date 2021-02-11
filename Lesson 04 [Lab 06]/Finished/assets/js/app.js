@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let TasksDB = indexedDB.open('tasks', 1);
 
     // if there's an error
-    TasksDB.onerror = function() {
-        console.log('There was an error');
+    TasksDB.onerror = function(e) {
+        console.log(e);
     }
         // if everything is fine, assign the result to the instance
     TasksDB.onsuccess = function() {
@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 transaction.oncomplete = () => {
                     e.target.parentElement.parentElement.remove();
+                    console.log("Removed task " + taskID);
                 }
 
             }
@@ -174,6 +175,5 @@ document.addEventListener('DOMContentLoaded', () => {
         displayTaskList();
         console.log("Tasks Cleared !!!");
     }
-
 
 });
